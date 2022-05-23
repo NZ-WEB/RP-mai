@@ -11,27 +11,15 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title @click="$router.push('/')">
-          RP-MAI
-        </q-toolbar-title>
+        <q-toolbar-title @click="$router.push('/')"> RP-MAI </q-toolbar-title>
 
-        <q-btn outline to="/auth">
-          Войти
-        </q-btn>
+        <q-btn outline to="/auth"> Войти </q-btn>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label
-          header
-        >
-          Имя Пользователя
-        </q-item-label>
+        <q-item-label header> Имя Пользователя </q-item-label>
 
         <EssentialLink
           v-for="link in essentialLinks"
@@ -55,22 +43,22 @@ const linksList = [
   {
     title: 'Профиль',
     icon: 'settings',
-    link: '/'
+    link: '/',
   },
   {
     title: 'Сотрудники',
     icon: 'people',
-    link: '/'
+    link: '/',
   },
   {
     title: 'НИРы',
     icon: 'record_voice_over',
-    link: '/'
+    link: '/',
   },
   {
     title: 'Нормативы',
     icon: 'record_voice_over',
-    link: '/'
+    link: '/',
   },
 ];
 
@@ -78,19 +66,19 @@ export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    EssentialLink,
   },
 
-  setup () {
-    const leftDrawerOpen = ref(false)
+  setup() {
+    const leftDrawerOpen = ref(false);
 
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
+      toggleLeftDrawer() {
+        leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+    };
+  },
 });
 </script>

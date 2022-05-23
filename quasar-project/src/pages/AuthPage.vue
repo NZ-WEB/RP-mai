@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from 'vue'
+import { defineComponent, ref } from 'vue';
 export default defineComponent({
   setup() {
     const login = ref<string>('');
@@ -20,17 +20,17 @@ export default defineComponent({
     const handleSubmit = () => {
       const submitData = {
         login: login.value,
-        password: password.value
+        password: password.value,
       };
 
       console.log(submitData);
-    }
+    };
 
     return {
       login,
       password,
-      handleSubmit
-    }
-  }
-})
+      handleSubmit,
+    };
+  },
+});
 </script>

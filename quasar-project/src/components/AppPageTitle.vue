@@ -1,13 +1,13 @@
 <template>
-  <div class="full-width q-pa-md">
+  <div class="full-width q-px-md q-mb-auto q-mt-none">
     <h3 class="q-my-md">{{ name }}</h3>
 
-    <p>{{description}}</p>
+    <p>{{ description }}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 export default defineComponent({
   props: {
     name: {
@@ -17,7 +17,7 @@ export default defineComponent({
     description: {
       type: String,
       require: true,
-    }
-  }
-})
+    },
+  },
+});
 </script>
