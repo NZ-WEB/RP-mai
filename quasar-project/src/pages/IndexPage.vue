@@ -5,33 +5,20 @@
       description="На главной станице расположены краткие сведения о сотрудниках, НИРах, конференциях и т.п."
     />
 
-    <the-home-pahe-members-list :members-list="membersStore.membersList" />
+    <the-home-pahe-members-list :members-list="membersList" />
   </q-page>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
+<script lang="ts" setup>
 import AppPageTitle from 'components/AppPageTitle.vue';
 import TheHomePaheMembersList from 'components/TheHomePaheMembersList.vue';
-import { IMembersList } from 'src/types/IMembersList';
-import { useMembersStore } from 'stores/members-store';
 
-export default defineComponent({
-  name: 'IndexPage',
-  components: { TheHomePaheMembersList, AppPageTitle },
-  setup() {
-    const membersStore = useMembersStore();
+import {storeToRefs} from 'pinia/dist/pinia';
+import {useUsersStore} from 'stores/members-store';
 
-    const membersList = ref<IMembersList[]>([]);
+const { membersList }  = storeToRefs(useUsersStore());
+const {loadMemberList} = useUsersStore()
 
-    onMounted(() => {
-      membersStore.loadMemberList();
-    });
+loadMemberList();
 
-    return {
-      membersList,
-      membersStore,
-    };
-  },
-});
 </script>

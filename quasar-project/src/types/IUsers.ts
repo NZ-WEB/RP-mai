@@ -1,4 +1,4 @@
-export interface IMembersList {
+export interface IUsers {
   id: number;
   fullName: string;
   avatar?: string;

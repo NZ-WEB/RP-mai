@@ -6,7 +6,7 @@
   >
     <q-item-label header>Список сотрудников</q-item-label>
 
-    <div v-if="membersList.length">
+    <div v-if="membersList?.length">
       <app-home-page-members-list-item
         v-for="memberListItem in membersList"
         :key="memberListItem.id"
@@ -26,13 +26,13 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import AppHomePageMembersListItem from 'components/AppHomePageMembersListItem.vue';
-import { IMembersList } from 'src/types/IMembersList';
+import { IUsers } from 'src/types/IUsers';
 
 export default defineComponent({
   components: { AppHomePageMembersListItem },
   props: {
     membersList: {
-      type: Object as PropType<IMembersList[]>,
+      type: Object as PropType<IUsers[]>,
       require: true,
     },
   },

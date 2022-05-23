@@ -1,22 +1,38 @@
 import { defineStore } from 'pinia';
 import { IMembersStore } from 'src/types/IMembersStore';
-import { IMembersList } from 'src/types/IMembersList';
+import { IUsers } from 'src/types/IUsers';
+import {IMember} from 'src/types/IMember';
 
-export const useMembersStore = defineStore('counter', {
+export const useUsersStore = defineStore('counter', {
   state: () =>
     ({
       membersList: [],
+      member: {
+        post: null,
+        bid: null,
+        salary: null,
+        PKG: null,
+        KL: null,
+        postType: null,
+        nameOfOrganization: null,
+        subdivision: null,
+        supervisor: null,
+        signOfALeader: null,
+        contractEndDate: null,
+        status: null,
+        reasonForStatusChange: null
+      }
     } as IMembersStore),
 
   getters: {
-    getMemberList(state) {
+    getMemberList(state): IUsers[] {
       return state.membersList;
     },
   },
 
   actions: {
     async loadMemberList() {
-      new Promise<IMembersList[]>((res) => {
+      await new Promise<IUsers[]>( (res) => {
         setTimeout(() => {
           res([
             {
@@ -69,9 +85,36 @@ export const useMembersStore = defineStore('counter', {
             },
           ]);
         }, 1000);
-      }).then((r: IMembersList[]) => {
+      }).then((r: IUsers[]) => {
         this.membersList = r;
       });
     },
+    async loadMemberData(id: number) {
+      return await new Promise<IMember>(res => {
+        setTimeout(() => {
+          console.log(id, 'Member is loading')
+          res(
+            {
+              post: 'Ст. Преподаватель',
+              bid: '500р / час',
+              salary: '50 000p',
+              PKG: 'Группа А',
+              KL: 'Уровень Г',
+              postType: 'Основное совместительство',
+              nameOfOrganization: 'ГУП МОЦ ЛФО ЛФ ДФЦЖДЬФ дфлталт ФДЛ фцатщ оц',
+              subdivision: 'Отдел управления и реалтзыанни фци',
+              supervisor: 'Жмышенко В. А.',
+              signOfALeader: 'Да',
+              contractEndDate: '22.13.2022',
+              status: 'Действующий',
+              reasonForStatusChange: 'Нанят'
+            }
+          )
+        }, 1000);
+      }).then((r: IMember) => {
+        this.member = r;
+        return r;
+      });
+    }
   },
 });

@@ -1,5 +1,7 @@
-import { IMembersList } from 'src/types/IMembersList';
+import { IUsers } from 'src/types/IUsers';
+import {IMember} from 'src/types/IMember';
 
 export interface IMembersStore {
-  membersList: IMembersList[];
+  membersList: IUsers[];
+  member: IMember
 }
