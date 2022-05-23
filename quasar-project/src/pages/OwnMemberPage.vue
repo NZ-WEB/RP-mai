@@ -25,6 +25,9 @@
           />
         </q-item-label>
       </q-item>
+      <div v-else class="q-pa-md">
+        <q-spinner size="md" /> Загружаются данные о сотруднике...
+      </div>
 
       <the-own-member-page-member-info
         :is-editing="isEditing"

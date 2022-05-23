@@ -58,5 +58,12 @@ export const useAuthStore = defineStore('useAuthStore', {
         })
         .then(() => console.log(this.auth, this.role, this.user));
     },
+
+    logOut() {
+      this.auth = false;
+      this.user = null;
+      this.role = ERoles.anon;
+      this.error = null;
+    },
   },
 });

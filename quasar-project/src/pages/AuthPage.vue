@@ -16,13 +16,19 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useAuthStore } from 'stores/auth-store';
+import { useRouter } from 'vue-router';
 
 const login = ref<string>('');
 const password = ref<string>('');
+const router = useRouter();
 
 const authStore = useAuthStore();
 
 const handleSubmit = () => {
-  authStore.login(login.value, password.value);
+  authStore.login(login.value, password.value).then(() => {
+    if (!authStore.error) {
+      router.push('/');
+    }
+  });
 };
 </script>
