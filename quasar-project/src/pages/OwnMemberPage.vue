@@ -15,15 +15,37 @@
             {{ filteredUserById.post }}
           </q-item-label>
         </q-item-section>
+        <q-item-label>
+          <q-btn
+            @click="setIsEditing"
+            size="sm"
+            round
+            flat
+            :icon="isEditing ? 'close' : 'edit'"
+          />
+        </q-item-label>
       </q-item>
 
-      <the-own-member-page-member-info :member="member" />
+      <the-own-member-page-member-info
+        :is-editing="isEditing"
+        :member="member"
+      />
+
+      <q-btn
+        @click="updateMemberData"
+        outline
+        class="q-mx-md"
+        color="primary"
+        v-if="isEditing"
+      >
+        Сохранить изменения
+      </q-btn>
     </q-card>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useUsersStore } from 'stores/members-store';
@@ -33,8 +55,9 @@ import TheOwnMemberPageMemberInfo from 'components/TheOwnMemberPageMemberInfo.vu
 const route = useRoute();
 
 const { membersList, member } = storeToRefs(useUsersStore());
-
 const { loadMemberList, loadMemberData } = useUsersStore();
+const isEditing = ref<boolean>(false);
+const setIsEditing = () => (isEditing.value = !isEditing.value);
 
 const userId = computed((): number => {
   const routesArr = route.path.split('/');
@@ -45,6 +68,11 @@ const userId = computed((): number => {
 const filteredUserById = computed((): IUsers | undefined => {
   return membersList.value.filter((user) => user.id === userId.value)[0];
 });
+
+const updateMemberData = () => {
+  setIsEditing();
+  // call to server
+};
 
 loadMemberList();
 loadMemberData(userId.value);
