@@ -11,27 +11,16 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title @click="$router.push('/')">
-          RP-MAI
-        </q-toolbar-title>
+        <q-toolbar-title @click="$router.push('/')"> RP-MAI </q-toolbar-title>
 
-        <q-btn outline to="/auth">
-          Войти
-        </q-btn>
+        <q-btn v-if="!auth" outline to="/auth"> Войти </q-btn>
+        <div v-else>{{ user }}</div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label
-          header
-        >
-          Имя Пользователя
-        </q-item-label>
+        <q-item-label header> Имя Пользователя </q-item-label>
 
         <EssentialLink
           v-for="link in essentialLinks"
@@ -49,48 +38,52 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import EssentialLink from 'components/EssentialLink.vue';
+import { useAuthStore } from 'stores/auth-store';
+import { storeToRefs } from 'pinia/dist/pinia';
 
 const linksList = [
   {
     title: 'Профиль',
     icon: 'settings',
-    link: '/'
+    link: '/',
   },
   {
     title: 'Сотрудники',
     icon: 'people',
-    link: '/'
+    link: '/',
   },
   {
     title: 'НИРы',
     icon: 'record_voice_over',
-    link: '/'
+    link: '/',
   },
   {
     title: 'Нормативы',
     icon: 'record_voice_over',
-    link: '/'
+    link: '/',
   },
 ];
 
 export default defineComponent({
   name: 'MainLayout',
 
-  components: {
-    EssentialLink
-  },
+  components: {},
 
-  setup () {
-    const leftDrawerOpen = ref(false)
+  setup() {
+    const leftDrawerOpen = ref(false);
+    const authStore = useAuthStore();
+
+    const { auth, user } = storeToRefs(authStore);
 
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
+      toggleLeftDrawer() {
+        leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+      auth,
+      user,
+    };
+  },
 });
 </script>
