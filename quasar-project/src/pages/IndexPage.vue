@@ -13,12 +13,11 @@
 import AppPageTitle from 'components/AppPageTitle.vue';
 import TheHomePaheMembersList from 'components/TheHomePaheMembersList.vue';
 
-import {storeToRefs} from 'pinia/dist/pinia';
-import {useUsersStore} from 'stores/members-store';
+import { storeToRefs } from 'pinia/dist/pinia';
+import { useUsersStore } from 'stores/members-store';
 
-const { membersList }  = storeToRefs(useUsersStore());
-const {loadMemberList} = useUsersStore()
+const { membersList } = storeToRefs(useUsersStore());
+const { loadMemberList } = useUsersStore();
 
 loadMemberList();
-
 </script>

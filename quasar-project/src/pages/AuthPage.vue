@@ -1,5 +1,8 @@
 <template>
   <q-page padding>
+    <q-banner v-if="authStore.error" class="text-white bg-red">
+      Неправильный логин или пароль
+    </q-banner>
     <q-form>
       <q-input outlined v-model="login" label="Логин" class="q-my-sm" />
       <q-input outlined v-model="password" label="Пароль" class="q-my-sm" />
@@ -10,27 +13,16 @@
   </q-page>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
-export default defineComponent({
-  setup() {
-    const login = ref<string>('');
-    const password = ref<string>('');
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useAuthStore } from 'stores/auth-store';
 
-    const handleSubmit = () => {
-      const submitData = {
-        login: login.value,
-        password: password.value,
-      };
+const login = ref<string>('');
+const password = ref<string>('');
 
-      console.log(submitData);
-    };
+const authStore = useAuthStore();
 
-    return {
-      login,
-      password,
-      handleSubmit,
-    };
-  },
-});
+const handleSubmit = () => {
+  authStore.login(login.value, password.value);
+};
 </script>

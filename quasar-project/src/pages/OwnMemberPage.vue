@@ -3,8 +3,8 @@
     <q-card bordered flat class="q-pa-md">
       <q-item v-if="filteredUserById">
         <q-item-section avatar>
-          <q-avatar  size="xl">
-            <img :src="filteredUserById.avatar">
+          <q-avatar size="xl">
+            <img :src="filteredUserById.avatar" />
           </q-avatar>
         </q-item-section>
         <q-item-section>
@@ -17,23 +17,22 @@
         </q-item-section>
       </q-item>
 
-      <the-own-member-page-member-info :member="member"/>
-
+      <the-own-member-page-member-info :member="member" />
     </q-card>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import {computed} from 'vue';
-import {useRoute} from 'vue-router';
-import {storeToRefs} from 'pinia';
-import {useUsersStore} from 'stores/members-store';
-import {IUsers} from 'src/types/IUsers';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { storeToRefs } from 'pinia';
+import { useUsersStore } from 'stores/members-store';
+import { IUsers } from 'src/types/IUsers';
 import TheOwnMemberPageMemberInfo from 'components/TheOwnMemberPageMemberInfo.vue';
 
 const route = useRoute();
 
-const { membersList, member }  = storeToRefs(useUsersStore());
+const { membersList, member } = storeToRefs(useUsersStore());
 
 const { loadMemberList, loadMemberData } = useUsersStore();
 
@@ -44,10 +43,9 @@ const userId = computed((): number => {
 });
 
 const filteredUserById = computed((): IUsers | undefined => {
-  return membersList.value.filter(user => user.id === userId.value)[0];
+  return membersList.value.filter((user) => user.id === userId.value)[0];
 });
 
 loadMemberList();
 loadMemberData(userId.value);
-
 </script>

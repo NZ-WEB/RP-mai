@@ -13,7 +13,8 @@
 
         <q-toolbar-title @click="$router.push('/')"> RP-MAI </q-toolbar-title>
 
-        <q-btn outline to="/auth"> Войти </q-btn>
+        <q-btn v-if="!auth" outline to="/auth"> Войти </q-btn>
+        <div v-else>{{ user }}</div>
       </q-toolbar>
     </q-header>
 
@@ -37,7 +38,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import EssentialLink from 'components/EssentialLink.vue';
+import { useAuthStore } from 'stores/auth-store';
+import { storeToRefs } from 'pinia/dist/pinia';
 
 const linksList = [
   {
@@ -65,12 +67,13 @@ const linksList = [
 export default defineComponent({
   name: 'MainLayout',
 
-  components: {
-    EssentialLink,
-  },
+  components: {},
 
   setup() {
     const leftDrawerOpen = ref(false);
+    const authStore = useAuthStore();
+
+    const { auth, user } = storeToRefs(authStore);
 
     return {
       essentialLinks: linksList,
@@ -78,6 +81,8 @@ export default defineComponent({
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
+      auth,
+      user,
     };
   },
 });
