@@ -1,16 +1,12 @@
 <template>
   <q-page class="">
-    <!--    <app-page-title-->
-    <!--      name="Главная"-->
-    <!--      description="На главной станице расположены краткие сведения о сотрудниках, НИРах, конференциях и т.п."-->
-    <!--    />-->
-
     <app-container>
+      <the-home-page-nirs />
+
       <the-home-page-sort />
 
       <the-home-pahe-members-list :members-list="membersList" />
 
-      <the-home-page-nirs />
     </app-container>
   </q-page>
 </template>
@@ -30,3 +26,9 @@ const { loadMemberList } = useUsersStore();
 
 loadMemberList();
 </script>
+
+<style lang="scss">
+ .custom-card {
+   border-radius: 20px;
+ }
+</style>

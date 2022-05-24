@@ -6,7 +6,7 @@
       v-else
       :model-value="item"
       @input="updateInput(newValue)"
-      class=""
+      class="full-width "
       label="оклад"
     />
   </q-item-label>
