@@ -1,6 +1,10 @@
 <template>
-
-  <q-card @click="routeOnOwnPage" bordered flat class=" q-my-md custom-card q-pa-sm">
+  <q-card
+    @click="routeOnOwnPage"
+    bordered
+    flat
+    class="q-my-md custom-card q-pa-sm"
+  >
     <div class="row wrap">
       <q-card-section class="col-12 col-md-4 col-lg-3">
         <q-item-label caption> {{ login }} </q-item-label>
@@ -17,23 +21,23 @@
         </q-item-label>
 
         <q-item class="items-center q-px-none justify-between q-mt-md">
-          <q-item-label caption  >
+          <q-item-label caption>
             <span class="text-bold">10</span> <span>Научных работ</span>
           </q-item-label>
 
-          <q-item-label caption >
+          <q-item-label caption>
             <span class="text-bold">10</span> <span>Конференций</span>
           </q-item-label>
         </q-item>
       </q-card-section>
 
       <q-card-section class="col-6 col-md-4 q-my-auto text-center">
-       <q-item-label header>
-         {{ post }}
-       </q-item-label>
+        <q-item-label header>
+          {{ post }}
+        </q-item-label>
       </q-card-section>
       <q-card-section class="col-5 col-md-4 q-my-auto text-center">
-       {{ phoneNumber }}
+        {{ phoneNumber }}
       </q-card-section>
     </div>
   </q-card>
@@ -72,7 +76,7 @@ export default defineComponent({
     login: {
       type: String,
       require: true,
-    }
+    },
   },
   setup(props) {
     const router = useRouter();
@@ -89,13 +93,13 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-  .custom-card {
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border-radius: 20px;
+.custom-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 20px;
 
-    &:hover {
-      background: #f4f4f4;
-    }
+  &:hover {
+    background: #f4f4f4;
   }
+}
 </style>

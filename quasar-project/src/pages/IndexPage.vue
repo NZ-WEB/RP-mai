@@ -6,7 +6,6 @@
       <the-home-page-sort />
 
       <the-home-pahe-members-list :members-list="membersList" />
-
     </app-container>
   </q-page>
 </template>
@@ -28,7 +27,7 @@ loadMemberList();
 </script>
 
 <style lang="scss">
- .custom-card {
-   border-radius: 20px;
- }
+.custom-card {
+  border-radius: 20px;
+}
 </style>

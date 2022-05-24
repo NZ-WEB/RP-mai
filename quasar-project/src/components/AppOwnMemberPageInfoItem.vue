@@ -2,14 +2,14 @@
   <q-item-label class="q-my-sm">
     <div v-if="!isEditing">
       <span class="text-body1">{{ literName }}: {{ item }}</span>
-      <q-separator class="q-my-sm"/>
+      <q-separator class="q-my-sm" />
     </div>
     <q-input
       outlined
       v-else
       :model-value="item"
       @input="updateInput(newValue)"
-      class="full-width "
+      class="full-width"
       label="оклад"
     />
   </q-item-label>

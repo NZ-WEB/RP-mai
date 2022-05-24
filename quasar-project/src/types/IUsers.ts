@@ -5,5 +5,5 @@ export interface IUsers {
   birth: string;
   phoneNumber: string;
   post: string;
-  login: string
+  login: string;
 }

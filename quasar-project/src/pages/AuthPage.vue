@@ -5,9 +5,9 @@
         Неправильный логин или пароль
       </q-banner>
       <q-card flat bordered class="q-pa-xl custom-form">
-          <q-item-label header class="text-h5 text-center">
-            Войдите в свой личный кабинет
-          </q-item-label>
+        <q-item-label header class="text-h5 text-center">
+          Войдите в свой личный кабинет
+        </q-item-label>
         <q-form>
           <q-input outlined v-model="login" label="Логин" class="q-my-sm" />
           <q-input outlined v-model="password" label="Пароль" class="q-my-sm" />
@@ -41,7 +41,7 @@ const handleSubmit = () => {
 };
 </script>
 
-<style scoped lang="scss" >
+<style scoped lang="scss">
 .custom-form {
   max-width: 600px;
   width: 100%;

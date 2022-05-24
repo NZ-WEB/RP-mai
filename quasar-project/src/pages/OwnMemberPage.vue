@@ -1,7 +1,6 @@
 <template>
   <q-page padding>
     <app-container>
-
       <q-item>
         <q-item-label header class="text-black text-h4 q-px-none">
           Информация о сотруднике
@@ -17,12 +16,11 @@
             <q-item-label caption class="">
               {{ filteredUserById.post }}
             </q-item-label>
-
           </q-item-section>
 
           <q-item-section>
             <q-item-label class="q-pb-md" caption>
-              {{filteredUserById.phoneNumber}}
+              {{ filteredUserById.phoneNumber }}
             </q-item-label>
             <q-item-label caption>
               {{ filteredUserById.birth }}
@@ -31,7 +29,7 @@
 
           <q-item-label>
             <q-btn
-              @click="setIsEditing "
+              @click="setIsEditing"
               size="sm"
               round
               flat
@@ -56,11 +54,9 @@
       </q-card>
 
       <the-own-member-page-member-info
-          :member="member"
-          @updateData="updateMemberData"
-        />
-
-
+        :member="member"
+        @updateData="updateMemberData"
+      />
     </app-container>
   </q-page>
 </template>
