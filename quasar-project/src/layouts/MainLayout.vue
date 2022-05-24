@@ -1,23 +1,28 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header bordered class="bg-white q-py-sm">
       <q-toolbar>
-        <!--        <q-btn-->
-        <!--          flat-->
-        <!--          dense-->
-        <!--          round-->
-        <!--          icon="menu"-->
-        <!--          aria-label="Menu"-->
-        <!--          @click="toggleLeftDrawer"-->
-        <!--        />-->
-
         <q-toolbar-title>
-          <span class="cursor-pointer" @click="$router.push('/')">RP-MAI</span>
+          <q-btn color="primary" @click="$router.push('/')" label="RP-mai" />
         </q-toolbar-title>
 
-        <q-btn v-if="!auth" outline to="/auth"> Войти </q-btn>
+        <q-btn
+          v-if="!auth"
+          rounded
+          color="white"
+          to="/auth"
+          class="text-grey-6"
+        >
+          <q-icon left name="login" /> Войти
+        </q-btn>
         <div v-else>
-          <q-btn outline icon="people" :label="user">
+          <q-btn
+            rounded
+            color="white"
+            class="text-grey"
+            icon="people"
+            :label="user"
+          >
             <q-menu>
               <q-list style="min-width: 100px">
                 <q-item clickable v-close-popup>

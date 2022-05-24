@@ -1,11 +1,5 @@
 <template>
-  <q-list
-    bordered
-    padding
-    class="rounded-borders full-width q-mb-auto q-mt-none"
-  >
-    <q-item-label header>Список сотрудников</q-item-label>
-
+  <div class="q-my-md">
     <div v-if="membersList?.length">
       <app-home-page-members-list-item
         v-for="memberListItem in membersList"
@@ -15,12 +9,14 @@
         :avatar="memberListItem.avatar"
         :post="memberListItem.post"
         :phone-number="memberListItem.phoneNumber"
+        :birth="memberListItem.birth"
+        :login="memberListItem.login"
       />
     </div>
     <div v-else class="q-pa-md">
       <q-spinner color="primary" size="3em" />
     </div>
-  </q-list>
+  </div>
 </template>
 
 <script lang="ts">

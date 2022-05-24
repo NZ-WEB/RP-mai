@@ -1,20 +1,40 @@
 <template>
-  <q-item clickable v-ripple @click="routeOnOwnPage">
-    <q-item-section avatar top>
-      <q-avatar>
-        <img :alt="fullName[0]" :src="avatar" />
-      </q-avatar>
-    </q-item-section>
 
-    <q-item-section>
-      <q-item-label lines="1">{{ fullName }}</q-item-label>
-      <q-item-label caption>{{ post }}</q-item-label>
-    </q-item-section>
+  <q-card bordered flat class=" q-my-md custom-card">
+    <div class="row wrap">
+      <q-card-section class="col-12 col-md-4 col-lg-2">
+        <q-item-label caption> {{ login }} </q-item-label>
 
-    <q-item-section side>
-      <q-item-label>{{ phoneNumber }}</q-item-label>
-    </q-item-section>
-  </q-item>
+        <q-item-label
+          header
+          class="text-black text-bold q-pa-none text-h6 q-py-sm"
+        >
+          {{ fullName }}
+        </q-item-label>
+
+        <q-item-label class="q-pa-none">
+          {{ birth }}
+        </q-item-label>
+
+        <q-item class="items-center q-px-none justify-between q-mt-md">
+          <q-item-label caption  >
+            <span class="text-bold">10</span> <span>Научных работ</span>
+          </q-item-label>
+
+          <q-item-label caption >
+            <span class="text-bold">10</span> <span>Конференций</span>
+          </q-item-label>
+        </q-item>
+      </q-card-section>
+
+      <q-card-section class="col-6 col-md-4 q-my-auto text-center">
+       {{ post }}
+      </q-card-section>
+      <q-card-section class="col-5 col-md-4 q-my-auto text-center">
+       {{ phoneNumber }}
+      </q-card-section>
+    </div>
+  </q-card>
 </template>
 
 <script lang="ts">
@@ -43,6 +63,14 @@ export default defineComponent({
       type: String,
       require: true,
     },
+    birth: {
+      type: String,
+      require: true,
+    },
+    login: {
+      type: String,
+      require: true,
+    }
   },
   setup(props) {
     const router = useRouter();
@@ -57,3 +85,14 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped lang="scss">
+  .custom-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: #f4f4f4;
+    }
+  }
+</style>
