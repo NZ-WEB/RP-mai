@@ -1,6 +1,9 @@
 <template>
   <q-item-label class="q-my-sm">
-    <span v-if="!isEditing">{{ literName }}: {{ item }}</span>
+    <div v-if="!isEditing">
+      <span class="text-body1">{{ literName }}: {{ item }}</span>
+      <q-separator class="q-my-sm"/>
+    </div>
     <q-input
       outlined
       v-else
