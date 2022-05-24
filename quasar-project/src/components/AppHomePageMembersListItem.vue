@@ -1,8 +1,8 @@
 <template>
 
-  <q-card bordered flat class=" q-my-md custom-card">
+  <q-card @click="routeOnOwnPage" bordered flat class=" q-my-md custom-card q-pa-sm">
     <div class="row wrap">
-      <q-card-section class="col-12 col-md-4 col-lg-2">
+      <q-card-section class="col-12 col-md-4 col-lg-3">
         <q-item-label caption> {{ login }} </q-item-label>
 
         <q-item-label
@@ -28,7 +28,9 @@
       </q-card-section>
 
       <q-card-section class="col-6 col-md-4 q-my-auto text-center">
-       {{ post }}
+       <q-item-label header>
+         {{ post }}
+       </q-item-label>
       </q-card-section>
       <q-card-section class="col-5 col-md-4 q-my-auto text-center">
        {{ phoneNumber }}
@@ -90,6 +92,7 @@ export default defineComponent({
   .custom-card {
     transition: all 0.3s ease;
     cursor: pointer;
+    border-radius: 20px;
 
     &:hover {
       background: #f4f4f4;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4 class="q-mt-lg q-mb-sm">Список сотрудников</h4>
+    <h4 class="q-mt-xl q-mb-sm">Список сотрудников</h4>
 
     <div class="row items-stretch">
       <q-input
@@ -70,7 +70,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent, ref } from 'vue';
+import { ref } from 'vue';
 
 const searchData = ref<string>('');
 </script>
