@@ -42,6 +42,7 @@ export const useUsersStore = defineStore('counter', {
               phoneNumber: '+7 (921) 92 929 99',
               birth: '19.29.1923',
               post: 'ст преподаватель',
+              login: 'Iuser',
             },
             {
               id: 2,
@@ -50,6 +51,7 @@ export const useUsersStore = defineStore('counter', {
               phoneNumber: '+7 (921) 92 929 99',
               birth: '19.29.1923',
               post: 'ст преподаватель',
+              login: 'Iuser',
             },
             {
               id: 3,
@@ -58,6 +60,7 @@ export const useUsersStore = defineStore('counter', {
               phoneNumber: '+7 (921) 92 929 99',
               birth: '19.29.1923',
               post: 'ст преподаватель',
+              login: 'Iuser',
             },
             {
               id: 4,
@@ -66,6 +69,7 @@ export const useUsersStore = defineStore('counter', {
               phoneNumber: '+7 (921) 92 929 99',
               birth: '19.29.1923',
               post: 'ст преподаватель',
+              login: 'Iuser',
             },
             {
               id: 5,
@@ -74,6 +78,7 @@ export const useUsersStore = defineStore('counter', {
               phoneNumber: '+7 (921) 92 929 99',
               birth: '19.29.1923',
               post: 'ст преподаватель',
+              login: 'Iuser',
             },
             {
               id: 6,
@@ -82,6 +87,7 @@ export const useUsersStore = defineStore('counter', {
               phoneNumber: '+7 (921) 92 929 99',
               birth: '19.29.1923',
               post: 'ст преподаватель',
+              login: 'Iuser',
             },
           ]);
         }, 1000);

@@ -1,49 +1,63 @@
 <template>
   <q-page padding>
-    <q-card bordered flat class="q-pa-md">
-      <q-item v-if="filteredUserById">
-        <q-item-section avatar>
-          <q-avatar size="xl">
-            <img :src="filteredUserById.avatar" />
-          </q-avatar>
-        </q-item-section>
-        <q-item-section>
-          <q-item-label>
-            {{ filteredUserById.fullName }}
-          </q-item-label>
-          <q-item-label caption>
-            {{ filteredUserById.post }}
-          </q-item-label>
-        </q-item-section>
-        <q-item-label>
-          <q-btn
-            @click="setIsEditing"
-            size="sm"
-            round
-            flat
-            :icon="isEditing ? 'close' : 'edit'"
-          />
+    <app-container>
+      <q-item>
+        <q-item-label header class="text-black text-h4 q-px-none">
+          Информация о сотруднике
         </q-item-label>
       </q-item>
-      <div v-else class="q-pa-md">
-        <q-spinner size="md" /> Загружаются данные о сотруднике...
-      </div>
+
+      <q-card bordered flat class="q-mb-md q-pa-md custom-card">
+        <q-item v-if="filteredUserById">
+          <q-item-section>
+            <q-item-label header class="q-px-none text-black text-h6 q-pt-none">
+              {{ filteredUserById.fullName }}
+            </q-item-label>
+            <q-item-label caption class="">
+              {{ filteredUserById.post }}
+            </q-item-label>
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label class="q-pb-md" caption>
+              {{ filteredUserById.phoneNumber }}
+            </q-item-label>
+            <q-item-label caption>
+              {{ filteredUserById.birth }}
+            </q-item-label>
+          </q-item-section>
+
+          <q-item-label>
+            <q-btn
+              @click="setIsEditing"
+              size="sm"
+              round
+              flat
+              :icon="isEditing ? 'close' : 'edit'"
+            />
+
+            <q-btn
+              @click="updateMemberData"
+              outline
+              class="q-mx-md"
+              color="grey"
+              v-if="isEditing"
+              rounded
+            >
+              Сохранить
+            </q-btn>
+          </q-item-label>
+        </q-item>
+        <div v-else class="q-pa-md">
+          <q-spinner size="md" /> Загружаются данные о сотруднике...
+        </div>
+      </q-card>
 
       <the-own-member-page-member-info
-        :is-editing="isEditing"
         :member="member"
+        @updateData="updateMemberData"
       />
-
-      <q-btn
-        @click="updateMemberData"
-        outline
-        class="q-mx-md"
-        color="primary"
-        v-if="isEditing"
-      >
-        Сохранить изменения
-      </q-btn>
-    </q-card>
+    </app-container>
   </q-page>
 </template>
 
@@ -54,6 +68,7 @@ import { storeToRefs } from 'pinia';
 import { useUsersStore } from 'stores/members-store';
 import { IUsers } from 'src/types/IUsers';
 import TheOwnMemberPageMemberInfo from 'components/TheOwnMemberPageMemberInfo.vue';
+import AppContainer from 'components/AppContainer.vue';
 
 const route = useRoute();
 
@@ -80,3 +95,9 @@ const updateMemberData = () => {
 loadMemberList();
 loadMemberData(userId.value);
 </script>
+
+<style>
+.custom-card {
+  border-radius: 20px;
+}
+</style>
