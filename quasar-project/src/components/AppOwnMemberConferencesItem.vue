@@ -19,7 +19,7 @@
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue';
-import {IConference} from 'src/types/IConference';
+import { IConference } from 'src/types/IConference';
 
 defineProps({
   conferences: {

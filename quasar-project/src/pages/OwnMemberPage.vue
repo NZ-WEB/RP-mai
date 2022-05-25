@@ -79,13 +79,9 @@
 
       <the-own-member-page-publications title="Публикации сотрудника" />
 
-      <the-own-member-conferences
-        title="Научные конференции"
-      />
+      <the-own-member-conferences title="Научные конференции" />
 
       <the-own-member-nirs :id="filteredUserById?.id" />
-
-
     </app-container>
   </q-page>
 </template>
@@ -96,7 +92,6 @@ import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useUsersStore } from 'stores/members-store';
 import { IUsers } from 'src/types/IUsers';
-import TheOwnMemberPageMemberInfo from 'components/TheOwnMemberPageMemberInfo.vue';
 import AppContainer from 'components/AppContainer.vue';
 import TheOwnMemberPageJobPlaseInfo from 'components/TheOwnMemberPageJobPlaseInfo.vue';
 import TheOwnMemberPagePublications from 'components/TheOwnMemberPagePublications.vue';

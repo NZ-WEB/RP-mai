@@ -23,22 +23,22 @@ export const usePublicationsStore = defineStore('publications', {
             {
               publicationId: 1,
               topicName: 'Публикация первая',
-              publishingHouseName: 'Место проведения конференций',
+              publishingHouseName: 'Журнал "Научные открытия"',
             },
             {
               publicationId: 2,
               topicName: 'Публикация вторая',
-              publishingHouseName: 'Место проведения конференций',
+              publishingHouseName: 'Издательство "Наука"',
             },
             {
               publicationId: 3,
               topicName: 'Публикация третья',
-              publishingHouseName: 'Место проведения конференций',
+              publishingHouseName: 'Журнал "Научные открытия"',
             },
             {
               publicationId: 4,
               topicName: 'Публикация четвёртая',
-              publishingHouseName: 'Место проведения конференций',
+              publishingHouseName: 'Издательство "Наука"',
             },
           ]);
         }, 1000);

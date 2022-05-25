@@ -46,7 +46,7 @@
 import { storeToRefs } from 'pinia/dist/pinia';
 import AppFinedDataValidateWithSpinner from 'components/AppFinedDataValidateWithSpinner.vue';
 import { ref } from 'vue';
-import {useConferencesStore} from 'stores/conferences-store';
+import { useConferencesStore } from 'stores/conferences-store';
 import AppOwnMemberConferencesItem from 'components/AppOwnMemberConferencesItem.vue';
 
 defineProps({
