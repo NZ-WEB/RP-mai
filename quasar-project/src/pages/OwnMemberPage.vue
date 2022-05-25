@@ -71,12 +71,6 @@
         </app-fined-data-validate-with-spinner>
       </q-card>
 
-      <!--      <the-own-member-page-member-info-->
-      <!--        :member="member"-->
-      <!--        @updateData="updateMemberData"-->
-      <!--        title="Сведения о сотруднике"-->
-      <!--      />-->
-
       <the-own-member-page-job-plase-info
         :member="member"
         @updateData="updateMemberData"
@@ -85,7 +79,13 @@
 
       <the-own-member-page-publications title="Публикации сотрудника" />
 
+      <the-own-member-conferences
+        title="Научные конференции"
+      />
+
       <the-own-member-nirs :id="filteredUserById?.id" />
+
+
     </app-container>
   </q-page>
 </template>
@@ -102,6 +102,7 @@ import TheOwnMemberPageJobPlaseInfo from 'components/TheOwnMemberPageJobPlaseInf
 import TheOwnMemberPagePublications from 'components/TheOwnMemberPagePublications.vue';
 import AppFinedDataValidateWithSpinner from 'components/AppFinedDataValidateWithSpinner.vue';
 import TheOwnMemberNirs from 'components/TheOwnMemberNirs.vue';
+import TheOwnMemberConferences from 'components/TheOwnMemberConferences.vue';
 
 const route = useRoute();
 
