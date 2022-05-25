@@ -11,13 +11,15 @@
         <q-card flat bordered>
           <q-item class="items-center justify-between">
             <q-card-section>
-              <q-item-label header class="text-black text-h5 q-px-none">
+              <q-item-label v-if="!isEditing" header class="text-black text-h5 q-px-none">
                 {{ getCurrentNir.fullWorkTitle }}
               </q-item-label>
+              <q-input v-else class="full-width" :model-value="getCurrentNir.fullWorkTitle"/>
 
-              <q-item-label caption>
+              <q-item-label v-if="!isEditing" caption>
                Уникальный номер: {{ getCurrentNir.contractNumber }}
               </q-item-label>
+              <q-input v-else class="full-width" :model-value="getCurrentNir.fullWorkTitle"/>
             </q-card-section>
 
             <q-btn
@@ -29,66 +31,92 @@
             />
 
             <q-card-section>
-              <q-item-label caption class="text-primary">
+              <q-item-label v-if="!isEditing" caption class="text-primary">
                 {{ getCurrentNir.workType }}
               </q-item-label>
+              <q-input v-else :model-value="getCurrentNir.workType"/>
             </q-card-section>
           </q-item>
 
+
           <q-card-section class="q-py-sm">
-            <q-item-label class="text-black text-body1 q-px-md ">
-              Заказчик: {{ getCurrentNir.Customer }}
-            </q-item-label>
+            <app-edit-mod-wrapper :condition="!isEditing" :model="getCurrentNir.Customer">
+              <q-item-label class="text-black text-body1 q-px-md ">
+                Заказчик: {{ getCurrentNir.Customer }}
+              </q-item-label>
+            </app-edit-mod-wrapper>
+          </q-card-section>
+
+
+          <q-card-section class="q-py-sm">
+            <app-edit-mod-wrapper :condition="!isEditing" :model="getCurrentNir.leadCustomer">
+              <q-item-label class="text-black text-body1 q-px-md ">
+                Имя руководителя: {{ getCurrentNir.leadCustomer }}
+              </q-item-label>
+            </app-edit-mod-wrapper>
           </q-card-section>
 
           <q-card-section class="q-py-sm">
-            <q-item-label class="text-black text-body1 q-px-md ">
-              Имя руководителя: {{ getCurrentNir.leadCustomer }}
-            </q-item-label>
+            <app-edit-mod-wrapper :condition="!isEditing" :model="getCurrentNir.contractDate">
+              <q-item-label class="text-black text-body1 q-px-md ">
+                Дата создания контракта: {{ getCurrentNir.contractDate }}
+              </q-item-label>
+            </app-edit-mod-wrapper>
           </q-card-section>
 
           <q-card-section class="q-py-sm">
-            <q-item-label class="text-black text-body1 q-px-md ">
-              Дата создания контракта: {{ getCurrentNir.contractDate }}
-            </q-item-label>
+            <app-edit-mod-wrapper :condition="!isEditing" :model="getCurrentNir.topicNumber">
+              <q-item-label class="text-black text-body1 q-px-md ">
+                Тип работы: {{ getCurrentNir.topicNumber }}
+              </q-item-label>
+            </app-edit-mod-wrapper>
           </q-card-section>
 
           <q-card-section class="q-py-sm">
-            <q-item-label class="text-black text-body1 q-px-md ">
-              Тип работы: {{ getCurrentNir.topicNumber }}
-            </q-item-label>
+            <app-edit-mod-wrapper :condition="!isEditing" :model="getCurrentNir.workPrice">
+              <q-item-label class="text-black text-body1 q-px-md ">
+                Цена: {{ getCurrentNir.workPrice }}р
+              </q-item-label>
+            </app-edit-mod-wrapper>
+
           </q-card-section>
 
           <q-card-section class="q-py-sm">
-            <q-item-label class="text-black text-body1 q-px-md ">
-              Цена: {{ getCurrentNir.workPrice }}р
-            </q-item-label>
+            <app-edit-mod-wrapper :condition="!isEditing" :model="getCurrentNir.startDate">
+              <q-item-label class="text-black text-body1 q-px-md ">
+                Начало работы: {{ getCurrentNir.startDate }}
+              </q-item-label>
+            </app-edit-mod-wrapper>
           </q-card-section>
 
           <q-card-section class="q-py-sm">
-            <q-item-label class="text-black text-body1 q-px-md ">
-              Начало работы: {{ getCurrentNir.startDate }}
-            </q-item-label>
+            <app-edit-mod-wrapper :condition="!isEditing" :model="getCurrentNir.endDate">
+              <q-item-label class="text-black text-body1 q-px-md ">
+                Окончание работы: {{ getCurrentNir.endDate }}
+              </q-item-label>
+            </app-edit-mod-wrapper>
           </q-card-section>
 
           <q-card-section class="q-py-sm">
-            <q-item-label class="text-black text-body1 q-px-md ">
-              Окончание работы: {{ getCurrentNir.endDate }}
-            </q-item-label>
+            <app-edit-mod-wrapper :condition="!isEditing" :model="getCurrentNir.stagesNumber">
+              <q-item-label class="text-black text-body1 q-px-md ">
+                Колличество стадий: {{ getCurrentNir.stagesNumber }}
+              </q-item-label>
+            </app-edit-mod-wrapper>
+
           </q-card-section>
 
           <q-card-section class="q-py-sm">
-            <q-item-label class="text-black text-body1 q-px-md ">
-              Колличество стадий: {{ getCurrentNir.stagesNumber }}
-            </q-item-label>
+            <app-edit-mod-wrapper :condition="!isEditing" :model="getCurrentNir.responsibleExecutorLogin">
+              <q-item-label class="text-black text-body1 q-px-md ">
+                Логин: {{ getCurrentNir.responsibleExecutorLogin }}
+              </q-item-label>
+            </app-edit-mod-wrapper>
           </q-card-section>
 
-          <q-card-section class="q-py-sm">
-            <q-item-label class="text-black text-body1 q-px-md ">
-              Логин: {{ getCurrentNir.responsibleExecutorLogin }}
-            </q-item-label>
+          <q-card-section>
+            <q-btn v-if="isEditing" outline color="primary" rounded @click="handleSave" label="Сохранить изменения" class="q-mx-md"/>
           </q-card-section>
-
 
         </q-card>
       </app-fined-data-validate-with-spinner>
@@ -104,6 +132,7 @@ import {storeToRefs} from 'pinia/dist/pinia';
 import {useNirsStore} from 'stores/nirs-store';
 import AppFinedDataValidateWithSpinner from 'components/AppFinedDataValidateWithSpinner.vue';
 import {INir} from 'src/types/INir';
+import AppEditModWrapper from 'components/AppEditModWrapper.vue';
 
 const route = useRoute();
 
@@ -127,6 +156,11 @@ const getCurrentNirArr = computed(() => {
 const getCurrentNir = computed((): INir => {
   return getCurrentNirArr.value[0];
 })
+
+const handleSave = () => {
+  setIsEditing();
+  //
+};
 
 loadAll();
 </script>
