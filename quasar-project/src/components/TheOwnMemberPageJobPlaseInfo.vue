@@ -47,6 +47,32 @@
             :is-editing="isEditing"
             v-if="member.reasonForStatusChange"
           />
+
+          <app-own-member-page-info-item
+            liter-name="Оклад"
+            v-model:item="member.salary"
+            :is-editing="isEditing"
+            v-if="member.salary"
+          />
+          <app-own-member-page-info-item
+            liter-name="Профессиональная квалификационная группа (ПКГ)"
+            v-model:item="member.PKG"
+            :is-editing="isEditing"
+            v-if="member.PKG"
+          />
+          <app-own-member-page-info-item
+            liter-name="Квалификационный уровень (КУ)"
+            v-model:item="member.KL"
+            :is-editing="isEditing"
+            v-if="member.KL"
+          />
+          <app-own-member-page-info-item
+            liter-name="Тип должности (основное, внутреннее совместительство, внешнее
+        совместительство)"
+            v-model:item="member.postType"
+            :is-editing="isEditing"
+            v-if="member.postType"
+          />
         </q-card-section>
 
         <q-item-label>
