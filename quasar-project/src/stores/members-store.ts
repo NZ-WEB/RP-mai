@@ -98,7 +98,7 @@ export const useUsersStore = defineStore('counter', {
     async loadMemberData(id: number) {
       return await new Promise<IMember>((res) => {
         setTimeout(() => {
-          console.log(id, 'Member is loading');
+          console.log('Success request, id: ', id);
           res({
             post: 'Ст. Преподаватель',
             bid: '500р / час',

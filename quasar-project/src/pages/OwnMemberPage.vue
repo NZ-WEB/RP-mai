@@ -7,50 +7,52 @@
         </q-item-label>
       </q-item>
 
-      <q-card bordered flat class="q-mb-md q-pa-md custom-card">
-        <q-item v-if="filteredUserById">
-          <q-item-section>
-            <q-item-label header class="q-px-none text-black text-h5 q-pt-none">
-              {{ filteredUserById.fullName }}
-            </q-item-label>
-            <q-item-label caption class="q-text-body1">
-              {{ filteredUserById.post }}
-            </q-item-label>
-          </q-item-section>
 
-          <q-item-section>
-            <q-item-label class="q-pb-md" caption>
-              {{ filteredUserById.phoneNumber }}
-            </q-item-label>
-            <q-item-label caption>
-              {{ filteredUserById.birth }}
-            </q-item-label>
-          </q-item-section>
+        <q-card bordered flat class="q-mb-md q-pa-md custom-card">
+          <app-fined-data-validate-with-spinner :condition="!!filteredUserById?.fullName">
+          <q-item v-if="filteredUserById">
+            <q-item-section>
+              <q-item-label header class="q-px-none text-black text-h5 q-pt-none">
+                {{ filteredUserById.fullName }}
+              </q-item-label>
+              <q-item-label caption class="q-text-body1">
+                {{ filteredUserById.post }}
+              </q-item-label>
+            </q-item-section>
 
-          <q-item-label>
-            <q-btn
-              @click="setIsEditing"
-              size="sm"
-              round
-              flat
-              :icon="isEditing ? 'close' : 'edit'"
-            />
+            <q-item-section>
+              <q-item-label class="q-pb-md" caption>
+                {{ filteredUserById.phoneNumber }}
+              </q-item-label>
+              <q-item-label caption>
+                {{ filteredUserById.birth }}
+              </q-item-label>
+            </q-item-section>
 
-            <q-btn
-              @click="updateMemberData"
-              outline
-              class="q-mx-md"
-              color="grey"
-              v-if="isEditing"
-              rounded
-            >
-              Сохранить
-            </q-btn>
-          </q-item-label>
-        </q-item>
-        <div v-else class="q-pa-md">
-          <q-spinner size="md" /> Загружаются данные о сотруднике...
-        </div>
+            <q-item-label>
+              <q-btn
+                @click="setIsEditing"
+                size="sm"
+                round
+                flat
+                :icon="isEditing ? 'close' : 'edit'"
+              />
+
+              <q-btn
+                @click="updateMemberData"
+                outline
+                class="q-mx-md"
+                color="grey"
+                v-if="isEditing"
+                rounded
+              >
+                Сохранить
+              </q-btn>
+            </q-item-label>
+          </q-item>
+
+      </app-fined-data-validate-with-spinner>
+
       </q-card>
 
       <the-own-member-page-member-info
@@ -83,6 +85,7 @@ import TheOwnMemberPageMemberInfo from 'components/TheOwnMemberPageMemberInfo.vu
 import AppContainer from 'components/AppContainer.vue';
 import TheOwnMemberPageJobPlaseInfo from 'components/TheOwnMemberPageJobPlaseInfo.vue';
 import TheOwnMemberPagePublications from 'components/TheOwnMemberPagePublications.vue';
+import AppFinedDataValidateWithSpinner from 'components/AppFinedDataValidateWithSpinner.vue';
 
 const route = useRoute();
 
