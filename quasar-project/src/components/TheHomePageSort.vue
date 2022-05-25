@@ -59,12 +59,6 @@
           </q-item>
         </q-list>
       </q-btn-dropdown>
-
-      <q-btn
-        label="Добавить сотрудника"
-        color="primary"
-        class="q-mr-none q-ml-auto"
-      />
     </div>
   </div>
 </template>
