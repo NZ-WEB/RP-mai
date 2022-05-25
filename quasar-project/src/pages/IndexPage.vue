@@ -1,8 +1,6 @@
 <template>
   <q-page class="">
     <app-container>
-      <the-home-page-nirs />
-
       <the-home-page-sort />
 
       <the-home-pahe-members-list :members-list="membersList" />
@@ -16,7 +14,6 @@ import TheHomePaheMembersList from 'components/TheHomePaheMembersList.vue';
 
 import { storeToRefs } from 'pinia/dist/pinia';
 import { useUsersStore } from 'stores/members-store';
-import TheHomePageNirs from 'components/TheHomePageConferences.vue';
 import TheHomePageSort from 'components/TheHomePageSort.vue';
 import AppContainer from 'components/AppContainer.vue';
 
