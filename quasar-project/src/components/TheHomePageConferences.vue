@@ -1,31 +1,46 @@
 <template>
-  <div class="q-pa-md">
-    <h5>Конференции</h5>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-      dolorem, enim esse ipsam quia ratione repudiandae saepe sapiente. A ad
-      alias animi consequatur dolorem ducimus harum id ipsum iste iure iusto
-      maxime nihil numquam, odit pariatur placeat provident sapiente voluptas.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-      dolorem, enim esse ipsam quia ratione repudiandae saepe sapiente. A ad
-      alias animi consequatur dolorem ducimus harum id ipsum iste iure iusto
-      maxime nihil numquam, odit pariatur placeat provident sapiente voluptas.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-      dolorem, enim esse ipsam quia ratione repudiandae saepe sapiente. A ad
-      alias animi consequatur dolorem ducimus harum id ipsum iste iure iusto
-      maxime nihil numquam, odit pariatur placeat provident sapiente voluptas.
-    </p>
+  <h4>Научные конференции</h4>
+  <q-carousel
+    v-if="getConferences.length && !error"
+    v-model="slide"
+    transition-prev="scale"
+    transition-next="scale"
+    swipeable
+    animated
+    control-color="primary"
+    navigation
+    padding
+    arrows
+    height="200px"
+    class="full-width"
+  >
+    <q-carousel-slide
+      v-for="conference in getConferences"
+      :key="conference.id"
+      :name="conference.id"
+      class="column no-wrap flex-center"
+    >
+      <div class="q-mt-md text-center text-body1">
+        {{ conference.name }}
+      </div>
+    </q-carousel-slide>
+  </q-carousel>
+  <div v-else class="q-pa-md">
+    <q-spinner size="md" color="primary" />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  // name: 'ComponentName'
-});
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useConferencesStore } from 'stores/conferences-store';
+import { storeToRefs } from 'pinia/dist/pinia';
+const conferencesStore = useConferencesStore();
+const conferencesStoreRefs = storeToRefs(conferencesStore);
+
+const { loadAll } = conferencesStore;
+const { getConferences, error } = conferencesStoreRefs;
+
+const slide = ref<number>(1);
+
+loadAll();
 </script>

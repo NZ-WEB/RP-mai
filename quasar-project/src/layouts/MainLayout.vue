@@ -9,9 +9,11 @@
         <q-btn
           v-if="!auth"
           rounded
+          flat
           color="white"
           to="/auth"
           class="text-grey-6"
+          outline
         >
           <q-icon left name="login" /> Войти
         </q-btn>
@@ -22,6 +24,8 @@
             class="text-grey"
             icon="people"
             :label="user"
+            flat
+            outline
           >
             <q-menu>
               <q-list style="min-width: 100px">

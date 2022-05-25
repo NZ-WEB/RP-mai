@@ -1,9 +1,12 @@
 export interface IUsers {
   id: number;
-  fullName: string;
-  avatar?: string;
-  birth: string;
-  phoneNumber: string;
-  post: string;
-  login: string;
+  firstName: string;
+  secondName: string;
+  thirdName: string;
+  dateOfBirth?: string;
+  education: string;
+  academicDegree: string;
+  academicRank: string;
+  contactNumber: string;
+  contactEmail: string;
 }
