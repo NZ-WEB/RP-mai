@@ -28,6 +28,10 @@
         </q-item-label>
       </q-item-section>
     </q-item>
+
+    <q-btn v-if="isEditing" @click="handleSave" outline color="primary" rounded class="q-ma-md q-mt-none">
+      Сохранить
+    </q-btn>
   </q-card>
 </template>
 
@@ -53,6 +57,11 @@ const isEditing = ref<boolean>(false);
 const setIsEditing = () => {
   isEditing.value = !isEditing.value;
 };
+
+const handleSave = () => {
+  setIsEditing();
+  //
+}
 
 loadAll();
 </script>
