@@ -84,6 +84,9 @@
       />
 
       <the-own-member-page-publications title="Публикации сотрудника" />
+
+      <the-own-member-nirs :id="filteredUserById?.id"/>
+
     </app-container>
   </q-page>
 </template>
@@ -99,6 +102,7 @@ import AppContainer from 'components/AppContainer.vue';
 import TheOwnMemberPageJobPlaseInfo from 'components/TheOwnMemberPageJobPlaseInfo.vue';
 import TheOwnMemberPagePublications from 'components/TheOwnMemberPagePublications.vue';
 import AppFinedDataValidateWithSpinner from 'components/AppFinedDataValidateWithSpinner.vue';
+import TheOwnMemberNirs from 'components/TheOwnMemberNirs.vue';
 
 const route = useRoute();
 
