@@ -1,4 +1,4 @@
-import {IConference} from 'src/types/IConference';
+import { IConference } from 'src/types/IConference';
 
 export interface IConferenceStoreState {
   conferences: IConference[];

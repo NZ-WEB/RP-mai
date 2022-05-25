@@ -7,34 +7,43 @@
         </q-item-label>
       </q-item>
 
-        <q-card bordered flat class="q-mb-md q-pa-md custom-card">
-          <app-fined-data-validate-with-spinner :condition="!!filteredUserById?.firstName">
+      <q-card bordered flat class="q-mb-md q-pa-md custom-card">
+        <app-fined-data-validate-with-spinner
+          :condition="!!filteredUserById?.firstName"
+        >
           <q-item v-if="filteredUserById">
             <q-item-section>
-              <q-item-label header class="q-px-none text-black text-h5 q-pt-none">
-                {{ filteredUserById.firstName }} {{ filteredUserById.secondName }} {{ filteredUserById.thirdName }}
+              <q-item-label
+                header
+                class="q-px-none text-black text-h5 q-pt-none"
+              >
+                {{ filteredUserById.firstName }}
+                {{ filteredUserById.secondName }}
+                {{ filteredUserById.thirdName }}
               </q-item-label>
-              <q-item-label class="q-text-body1 text-body1">
-                Образование:  {{ filteredUserById.education }}
+              <q-item-label class="text-body1">
+                Образование: {{ filteredUserById.education }}
               </q-item-label>
-              <q-item-label  class="text-body1">
-                Учёное звание:  {{ filteredUserById.academicRank }}
+              <q-item-label class="text-body1">
+                Учёное звание: {{ filteredUserById.academicRank }}
               </q-item-label>
-              <q-item-label  class="text-body1">
+              <q-item-label class="text-body1">
                 Кандидатская степень:{{ filteredUserById.academicDegree }}
               </q-item-label>
             </q-item-section>
 
             <q-item-section>
               <q-item-label class="q-pb-md" caption>
-                Контактный телефон: <span class="text-black">
-                {{ filteredUserById.contactNumber }}
-              </span>
+                Контактный телефон:
+                <span class="text-black">
+                  {{ filteredUserById.contactNumber }}
+                </span>
               </q-item-label>
               <q-item-label caption>
-                Контактный e-mail: <span class="text-black">
-                {{ filteredUserById.contactEmail }}
-              </span>
+                Контактный e-mail:
+                <span class="text-black">
+                  {{ filteredUserById.contactEmail }}
+                </span>
               </q-item-label>
             </q-item-section>
 
@@ -59,9 +68,7 @@
               </q-btn>
             </q-item-label>
           </q-item>
-
-      </app-fined-data-validate-with-spinner>
-
+        </app-fined-data-validate-with-spinner>
       </q-card>
 
       <the-own-member-page-member-info
@@ -76,10 +83,7 @@
         title="Информация о месте работы"
       />
 
-      <the-own-member-page-publications
-        title="Публикации сотрудника"
-      />
-
+      <the-own-member-page-publications title="Публикации сотрудника" />
     </app-container>
   </q-page>
 </template>

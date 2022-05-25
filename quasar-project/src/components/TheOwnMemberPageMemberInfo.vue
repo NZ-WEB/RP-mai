@@ -1,6 +1,5 @@
 <template>
   <q-card flat bordered class="custom-card q-pa-md q-my-md">
-
     <h6 v-if="title" class="q-my-none q-px-md text-grey">{{ title }}</h6>
 
     <app-fined-data-validate-with-spinner :condition="!!member.salary">
@@ -31,7 +30,6 @@
             :is-editing="isEditing"
             v-if="member.postType"
           />
-
         </q-card-section>
 
         <q-item-label>
@@ -75,8 +73,8 @@ const props = defineProps({
   title: {
     type: String,
     require: false,
-    default: ''
-  }
+    default: '',
+  },
 });
 
 const emits = defineEmits({

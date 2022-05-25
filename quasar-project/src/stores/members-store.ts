@@ -45,7 +45,7 @@ export const useUsersStore = defineStore('counter', {
               academicDegree: 'Кондидат технических наук',
               academicRank: 'Инженер',
               contactNumber: '+7 (910) 148-82-28',
-              contactEmail: 'simon12@gmail.com'
+              contactEmail: 'simon12@gmail.com',
             },
             {
               id: 2,
@@ -57,7 +57,7 @@ export const useUsersStore = defineStore('counter', {
               academicDegree: 'Кондидат технических наук',
               academicRank: 'Инженер',
               contactNumber: '+7 (910) 148-82-28',
-              contactEmail: 'simon12@gmail.com'
+              contactEmail: 'simon12@gmail.com',
             },
             {
               id: 3,
@@ -69,7 +69,7 @@ export const useUsersStore = defineStore('counter', {
               academicDegree: 'Кондидат технических наук',
               academicRank: 'Инженер',
               contactNumber: '+7 (910) 148-82-28',
-              contactEmail: 'simon12@gmail.com'
+              contactEmail: 'simon12@gmail.com',
             },
             {
               id: 4,
@@ -81,7 +81,7 @@ export const useUsersStore = defineStore('counter', {
               academicDegree: 'Кондидат технических наук',
               academicRank: 'Инженер',
               contactNumber: '+7 (910) 148-82-28',
-              contactEmail: 'simon12@gmail.com'
+              contactEmail: 'simon12@gmail.com',
             },
             {
               id: 5,
@@ -93,7 +93,7 @@ export const useUsersStore = defineStore('counter', {
               academicDegree: 'Кондидат технических наук',
               academicRank: 'Инженер',
               contactNumber: '+7 (910) 148-82-28',
-              contactEmail: 'simon12@gmail.com'
+              contactEmail: 'simon12@gmail.com',
             },
           ]);
         }, 1000);

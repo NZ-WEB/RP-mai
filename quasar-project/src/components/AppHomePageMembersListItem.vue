@@ -38,7 +38,7 @@ export default defineComponent({
     thirdName: {
       type: String,
       require: true,
-    }
+    },
   },
   setup(props) {
     const router = useRouter();

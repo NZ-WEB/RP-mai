@@ -8,5 +8,5 @@ export interface IUsers {
   academicDegree: string;
   academicRank: string;
   contactNumber: string;
-  contactEmail: string
+  contactEmail: string;
 }

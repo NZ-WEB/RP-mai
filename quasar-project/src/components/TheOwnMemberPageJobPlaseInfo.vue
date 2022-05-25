@@ -1,6 +1,5 @@
 <template>
   <q-card flat bordered class="custom-card q-pa-md q-my-md">
-
     <h6 v-if="title" class="q-my-none q-px-md text-grey">{{ title }}</h6>
 
     <app-fined-data-validate-with-spinner :condition="!!member.post">
@@ -74,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, ref, toRefs} from 'vue';
+import { PropType, ref, toRefs } from 'vue';
 import { IMember } from 'src/types/IMember';
 import AppOwnMemberPageInfoItem from 'components/AppOwnMemberPageInfoItem.vue';
 import AppFinedDataValidateWithSpinner from 'components/AppFinedDataValidateWithSpinner.vue';
@@ -91,8 +90,8 @@ const props = defineProps({
   title: {
     type: String,
     require: false,
-    default: ''
-  }
+    default: '',
+  },
 });
 
 const emits = defineEmits({

@@ -1,20 +1,19 @@
 <template>
   <div v-if="condition">
-    <slot/>
+    <slot />
   </div>
   <div v-else class="q-ma-md">
-    <q-spinner color="primary" size="md"/>
+    <q-spinner color="primary" size="md" />
   </div>
 </template>
 
 <script setup lang="ts">
-import {PropType} from 'vue';
+import { PropType } from 'vue';
 
 defineProps({
   condition: {
     type: Boolean as PropType<boolean | undefined>,
-    require: true
-  }
-})
-
+    require: true,
+  },
+});
 </script>
