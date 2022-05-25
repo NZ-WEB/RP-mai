@@ -4,13 +4,10 @@
       <app-home-page-members-list-item
         v-for="memberListItem in membersList"
         :key="memberListItem.id"
+        :first-name="memberListItem.firstName"
+        :second-name="memberListItem.secondName"
+        :third-name="memberListItem.thirdName"
         :id="memberListItem.id"
-        :full-name="memberListItem.fullName"
-        :avatar="memberListItem.avatar"
-        :post="memberListItem.post"
-        :phone-number="memberListItem.phoneNumber"
-        :birth="memberListItem.birth"
-        :login="memberListItem.login"
       />
     </div>
     <div v-else class="q-pa-md">

@@ -7,25 +7,34 @@
         </q-item-label>
       </q-item>
 
-
         <q-card bordered flat class="q-mb-md q-pa-md custom-card">
-          <app-fined-data-validate-with-spinner :condition="!!filteredUserById?.fullName">
+          <app-fined-data-validate-with-spinner :condition="!!filteredUserById?.firstName">
           <q-item v-if="filteredUserById">
             <q-item-section>
               <q-item-label header class="q-px-none text-black text-h5 q-pt-none">
-                {{ filteredUserById.fullName }}
+                {{ filteredUserById.firstName }} {{ filteredUserById.secondName }} {{ filteredUserById.thirdName }}
               </q-item-label>
-              <q-item-label caption class="q-text-body1">
-                {{ filteredUserById.post }}
+              <q-item-label class="q-text-body1 text-body1">
+                Образование:  {{ filteredUserById.education }}
+              </q-item-label>
+              <q-item-label  class="text-body1">
+                Учёное звание:  {{ filteredUserById.academicRank }}
+              </q-item-label>
+              <q-item-label  class="text-body1">
+                Кандидатская степень:{{ filteredUserById.academicDegree }}
               </q-item-label>
             </q-item-section>
 
             <q-item-section>
               <q-item-label class="q-pb-md" caption>
-                {{ filteredUserById.phoneNumber }}
+                Контактный телефон: <span class="text-black">
+                {{ filteredUserById.contactNumber }}
+              </span>
               </q-item-label>
               <q-item-label caption>
-                {{ filteredUserById.birth }}
+                Контактный e-mail: <span class="text-black">
+                {{ filteredUserById.contactEmail }}
+              </span>
               </q-item-label>
             </q-item-section>
 
