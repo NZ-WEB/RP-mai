@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { IAuthState } from 'src/types/IAuthState';
 import { ERoles } from 'src/utils/roles/ERoles';
 import { IAuthResponse } from 'src/types/IAuthResponse';
+import GetToken from 'src/api/okAuth/getToken';
 
 export const useAuthStore = defineStore('useAuthStore', {
   state: () =>
@@ -24,6 +25,8 @@ export const useAuthStore = defineStore('useAuthStore', {
 
   actions: {
     async login(login: string, password: string) {
+      GetToken.getInstance().getToken(login, password);
+
       return await new Promise<IAuthResponse>((res) => {
         console.log('start');
         if (login === 'admin' && password === 'admin') {

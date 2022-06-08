@@ -2,7 +2,6 @@
   <q-page class="">
     <app-container>
       <the-home-page-sort />
-
       <the-home-pahe-members-list :members-list="membersList" />
     </app-container>
   </q-page>

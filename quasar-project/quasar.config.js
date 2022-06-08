@@ -12,6 +12,9 @@
 
 const { configure } = require('quasar/wrappers');
 
+const API_OK_AUTH_LOCAL = 'http://localhost:5080',
+  API_OK_AUTH_PRODUCTION = 'https://some-api';
+
 module.exports = configure(function (ctx) {
   return {
     // https://v2.quasar.dev/quasar-cli-webpack/supporting-ts
@@ -51,6 +54,10 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
     build: {
+      env: {
+        API_OK_AUTH: ctx.dev ? API_OK_AUTH_LOCAL : API_OK_AUTH_PRODUCTION,
+      },
+
       vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // transpile: false,
